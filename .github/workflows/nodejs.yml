@@ -3,18 +3,17 @@ name: Node.js CI/CD
 on:
   push:
     branches:
-      - main  # Change this to your main branch name
+      - main  # Change this to the main branch of your repository
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 14  # Change this to your desired Node.js version
@@ -25,12 +24,11 @@ jobs:
     - name: Install Express
       run: npm install express
 
-    - name: Run App
-      run: node app.js 
+    - name: Run tests
+      run: npm app.js
 
-    - name: Stop Node.js Server
+    - name: Deploy to production
+      if: success()
       run: |
-          pkill -f "node app.js"
-        # Use a command to stop your Node.js server. Replace with your actual server stop command.
-        # Example: pm2 stop my-node-server
-        # Make sure you use the appropriate command to stop your server.
+        pkill -f "node app.js"
+        # Add your deployment steps here, such as deploying to a server, cloud platform, or hosting service.
