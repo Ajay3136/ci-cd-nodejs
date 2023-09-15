@@ -26,9 +26,3 @@ jobs:
 
     - name: Run tests
       run: node app.js
-
-    - name: Deploy to production
-      if: success()
-      run: |
-        pkill -f "node app.js"
-        # Add your deployment steps here, such as deploying to a server, cloud platform, or hosting service.
