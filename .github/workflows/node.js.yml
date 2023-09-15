@@ -31,4 +31,5 @@ jobs:
     - run: node app.js
 
     - name: Stop Node.js Server
-      run: pkill -f "node app.js"
+      run:  |
+        pkill -f "node app.js"
