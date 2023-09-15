@@ -30,4 +30,4 @@ jobs:
     - run: npm run build --if-present
     - run: node app.js
     - name: Stop Node.js Application
-    - run: pkill -f "node.js"
+    - run: pkill -f "node app.js"
