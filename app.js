@@ -15,5 +15,5 @@ server.listen(PORT, () => {
     server.close(() => {
       console.log('Server has been stopped.');
     });
-  }, 10000);
+  }, 9000);
 });
