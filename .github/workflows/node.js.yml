@@ -3,7 +3,7 @@ name: Node.js CI/CD
 on:
   push:
     branches:
-      - main  # Change this to the main branch of your repository
+      - master  # Change this to the main branch of your repository
 
 jobs:
   build:
