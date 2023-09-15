@@ -1,0 +1,36 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14  # Change this to your desired Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Express
+      run: npm install express
+
+    - name: Run App
+      run: node app.js 
+
+    - name: Stop Node.js Server
+      run: |
+          pkill -f "node app.js"
+        # Use a command to stop your Node.js server. Replace with your actual server stop command.
+        # Example: pm2 stop my-node-server
+        # Make sure you use the appropriate command to stop your server.
